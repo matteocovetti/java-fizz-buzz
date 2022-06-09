@@ -14,21 +14,35 @@ public class BonusFizzBuzz {
 		
 		int numero = 0;
 		
-		System.out.println("Giochiamo a FizzBuzz:");
-		for (int i = 1; i < 101; i++) {
-			// add FizzBuzz
-			if ((i % 3) == 0 && (i % 5) == 0) {
-				System.out.println("FizzBuzz");
-			} // add Fizz
-			else if ((i % 3) == 0) {
-				System.out.println("Fizz");
-			} // add Buzz
-			else if ((i % 5) == 0) {
-				System.out.println("Buzz");
-			} else {
-				System.out.println(i);
+		boolean continuaAChiedere = true;
+		
+		while (continuaAChiedere) { // faccaimo inserire il numero all'utente
+			System.out.println("Inserisci il numero fino al quale dobbiamo giocare (compreso tra 1 e 200) ");
+			numero = scan.nextInt();
+			// condizione per rimanere nel range giusto con numero
+			if (numero > 0 && numero <= 200) {
+				continuaAChiedere = false;
+				// inizio ciclo FizzBuzz
+				System.out.println("Giochiamo a FizzBuzz:");
+				for (int i = 1; i <= numero; i++) {
+					// add FizzBuzz
+					if ((i % 3) == 0 && (i % 5) == 0) {
+						System.out.println("FizzBuzz");
+					} // add Fizz
+					else if ((i % 3) == 0) {
+						System.out.println("Fizz");
+					} // add Buzz
+					else if ((i % 5) == 0) {
+						System.out.println("Buzz");
+					} else {
+						System.out.println(i);
+					}
+				}
+			} else { // caso di inserimento numero errato
+				System.out.println("Hai inserito un numero errato. Riprova!");
 			}
 		}
+		scan.close();
 
 	}
 
